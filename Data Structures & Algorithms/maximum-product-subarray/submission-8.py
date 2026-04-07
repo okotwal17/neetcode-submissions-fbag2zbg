@@ -1,0 +1,13 @@
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        maxProduct, minProduct = 1,1
+        res = max(nums)
+        for num in nums:
+            if num == 0:
+                maxProduct, minProduct = 1,1
+                continue
+            tmp = num*maxProduct
+            maxProduct = max(num*maxProduct, num*minProduct, num)
+            minProduct = min(tmp, num*minProduct, num)
+            res = max(res, maxProduct)
+        return res
