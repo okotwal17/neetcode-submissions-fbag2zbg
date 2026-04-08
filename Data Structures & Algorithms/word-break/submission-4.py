@@ -6,4 +6,5 @@ class Solution:
             for w in wordDict:
                 if s[i: i + len(w)] == w:
                     dp[i] = dp[i + len(w)]
+        print(dp)
         return dp[0]
